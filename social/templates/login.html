@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body class="container">
+		<h2 class="page-header">Share App</h2>
+		{% if urls %}
+			{% for key,value in urls.items %}
+			<span class="alert alert-warning">Your {{key}}  access token has expired. <a href="{{value}}" onclick="return !window.open(this.href, 'Login' ,'width=500,height=500')" target="_blank">Login to  {{key}}</a></span><br><br>
+			{% endfor %}
+		{% else %}
+		<span class = "alert alert-success"> Your Facebook and Linkedin access Tokens are valid</span><br>
+		{% endif %}
+		<hr>
+		<a href="/social/showForm" class="btn btn-primary">Proceed to the post form</a>
+		<a href="/social/retrieveData" class="btn btn-primary">Retrieve insights about the post</a>
+	</body>
+</html>
